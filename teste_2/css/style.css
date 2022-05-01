@@ -1,67 +1,114 @@
 :root{
-    --round-border-radius: 10px;
-    --bg-color: #31aeb6;
-    --bg-side-right-color: #1e5e62;
-    --bg-side-left-color: #fffefe;
+    --round-border-radius: 40px;
+    --bg-color: #17565a;
+    --shadow-color:#10373a;
+    --bg-side-right-color: #2e7f85;
+    --bg-side-left-color: #31aeb6;
     --text-color: #fffefe;
-    --bg-button-color: #a11800;
-    --bg-hover-button-color: #d32000;
-    --main-width: 1000px;
-    --main-half-width: -500px;
-    --main-height: 800px;
-    --main-half-height: -400px;
+    --bg-button-color: #17565a;
+    --bg-hover-button-color: #124044;
+    --main-height: 691px;
 }
 *{
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text-color);
-}
-h2{
     text-align: center;
 }
+
 body{
-    background-color: var(--bg-color);
+    background-image: url(../imagens/background01.jpg);
+    background-size: length(100%) width(100%);
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    /*background-color: var(--bg-color);*/
 }
-main{
+
+#background{
+    width: 100%;
+    height: 100%;
     position: fixed;
-    top: 50%;
-    width: var(--main-width);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    /*width: var(--main-width);*/
     height: var(--main-height);
-    left: 50%;
-    margin-left: var(--main-half-width);
-    margin-top: var(--main-half-height);
+    margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    box-shadow: 0px 0px 40px 20px var(--shadow-color);
 }
 
 img{
     height: 100%;
 }
 main div{
-    width: 50%;
     height: 100%;
-    padding: 20px;
+    min-width: 100px;
 }
-.coluna1{
-    background-color: var(--bg-side-left-color);
-    border-radius: var(--round-border-radius) 0 0 var(--round-border-radius);
-}
+
 .coluna2{
+    width: 50%;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--bg-side-right-color);
-    border-radius: 0 var(--round-border-radius) var(--round-border-radius) 0;
+    }
+
+input{
+    color: rgb(95, 95, 95);
+    border: none;
+    width: 300px;
+    border-radius: var(--round-border-radius);
+    padding: 10px;
+    margin-top: 10px;
 }
 
 #cadastrar{
-    width: 100%;
-    padding: 10px 0;
+    color: var(--text-color);
     background-color: var(--bg-button-color);
     border: none;
     border-radius: var(--round-border-radius);
+    font-weight: bold;
 }
 #cadastrar:hover{
     background-color: var(--bg-hover-button-color);
+    padding: 15px;
+}
+@media only screen and (max-width: 860px) {
+    main{
+        box-shadow: none;
+        width: 100%;
+        flex-direction: column;
+    }
+    body{
+        background-image: none;
+        background-color: var(--bg-side-right-color);
+    }
+    .coluna2, .coluna1{
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 435px) {
+    img{
+        width: 100%;
+    }
+    form{
+        width: 100%;
+    }
+    input{
+        width: 90%;
+        padding: 10px 5%;
+    }
+    .coluna2, .coluna1{
+        width: 90%;
+        padding: 5%;
+    }
 }
